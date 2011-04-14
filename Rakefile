@@ -9,6 +9,9 @@ rescue Bundler::BundlerError => e
 end
 require 'rake'
 
+$:.unshift File.expand_path('../lib', __FILE__)
+require 'safely'
+
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
@@ -19,6 +22,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = %Q{Safely run your code in a loving error reporting embrace}
   gem.email = "kenneth.kalmer@gmail.com"
   gem.authors = ["Kenneth Kalmer"]
+  gem.version = Safely::VERSION
   # Include your dependencies below. Runtime dependencies are required when using your gem,
   # and development dependencies are only needed for development (ie running rake tasks, tests, etc)
   #  gem.add_runtime_dependency 'jabber4r', '> 0.1'
