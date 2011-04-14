@@ -15,8 +15,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "safely"
   gem.homepage = "http://github.com/kennethkalmer/safely"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Safely run your code, keep track of exceptions}
+  gem.description = %Q{Safely run your code in a loving error reporting embrace}
   gem.email = "kenneth.kalmer@gmail.com"
   gem.authors = ["Kenneth Kalmer"]
   # Include your dependencies below. Runtime dependencies are required when using your gem,
@@ -32,10 +32,10 @@ RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
-RSpec::Core::RakeTask.new(:rcov) do |spec|
-  spec.pattern = 'spec/**/*_spec.rb'
-  spec.rcov = true
-end
+#RSpec::Core::RakeTask.new(:rcov) do |spec|
+#  spec.pattern = 'spec/**/*_spec.rb'
+#  spec.rcov = true
+#end
 
 task :default => :spec
 
