@@ -27,15 +27,18 @@ describe Safely do
 
       defined?( Toadhopper ).should be_true
     end
+
+    it "should load Mail if present" do
+      Safely.load_strategies!
+
+      defined?( Mail ).should be_true
+    end
   end
 
   describe "usage" do
     it "should report exceptions to hoptoad" do
-      Safely.configure do |c|
-        c.hoptoad_key = "foo"
-      end
-
-      Toadhopper.any_instance.expects(:post!)
+      Safely::Strategy::Hoptoad.expects(:report!)
+      Safely::Strategy::Mail.expects(:report!)
 
       safely do
         raise "Hello"

@@ -8,6 +8,7 @@ source "http://rubygems.org"
 
 group :development do
   gem "toadhopper"
+  gem "mail"
 
   gem "rspec", "~> 2.5.0"
   gem "yard", "~> 0.6.0"

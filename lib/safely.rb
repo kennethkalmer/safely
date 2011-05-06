@@ -4,8 +4,9 @@ module Safely
 
   VERSION = "0.1.0pre"
 
-  autoload :Config, 'safely/config'
-  autoload :Mixin,  'safely/mixin'
+  autoload :Config,   'safely/config'
+  autoload :Mixin,    'safely/mixin'
+  autoload :Strategy, 'safely/strategy'
 
   class << self
 
@@ -22,19 +23,11 @@ module Safely
     end
 
     def load_strategies!
-      begin
-        require 'toadhopper'
-      rescue LoadError
-        # Print warning
-      end
+      @config.strategies.each { |s| s.load! }
     end
 
     def report!( exception )
-      if defined?( Toadhopper ) && !config.hoptoad_key.nil?
-        Toadhopper( config.hoptoad_key ).post!( exception )
-      else
-        STDERR.puts "Toadhopper not available or not configured!"
-      end
+      @config.strategies.each { |s| s.report! exception }
     end
 
     private
