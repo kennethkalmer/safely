@@ -1,4 +1,12 @@
-0.1 (WIP)
+0.3 2011-05-07
+
+* Backtrace catcher support
+
+0.2 2011-05-07
+
+* Log support
+
+0.1 2011-05-07
 
 * Initial hoptoad support
 * Initial email support
