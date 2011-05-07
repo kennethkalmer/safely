@@ -2,7 +2,7 @@ $:.unshift File.expand_path('../', __FILE__)
 
 module Safely
 
-  VERSION = "0.1.0pre"
+  VERSION = "0.1.0"
 
   autoload :Config,   'safely/config'
   autoload :Mixin,    'safely/mixin'
