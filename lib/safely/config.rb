@@ -7,7 +7,8 @@ module Safely
     def initialize
       @strategies = [
         Safely::Strategy::Hoptoad,
-        Safely::Strategy::Mail
+        Safely::Strategy::Mail,
+        Safely::Strategy::Log
       ]
     end
 
