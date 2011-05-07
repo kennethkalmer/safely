@@ -27,6 +27,8 @@ module Safely
     end
 
     def report!( exception )
+      load_strategies! if @config.nil?
+
       @config.strategies.each { |s| s.report! exception }
     end
 
