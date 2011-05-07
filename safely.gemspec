@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{safely}
-  s.version = "0.2.0"
+  s.version = "0.3.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kenneth Kalmer"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/safely.rb",
+    "lib/safely/backtrace.rb",
     "lib/safely/config.rb",
     "lib/safely/mixin.rb",
     "lib/safely/strategy.rb",
@@ -34,6 +35,9 @@ Gem::Specification.new do |s|
     "lib/safely/strategy/log.rb",
     "lib/safely/strategy/mail.rb",
     "safely.gemspec",
+    "spec/backtrace/safe.rb",
+    "spec/backtrace/unsafe.rb",
+    "spec/backtrace_spec.rb",
     "spec/config_spec.rb",
     "spec/safely_spec.rb",
     "spec/spec_helper.rb",
@@ -48,6 +52,9 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.7.2}
   s.summary = %q{Safely run your code, keep track of exceptions}
   s.test_files = [
+    "spec/backtrace/safe.rb",
+    "spec/backtrace/unsafe.rb",
+    "spec/backtrace_spec.rb",
     "spec/config_spec.rb",
     "spec/safely_spec.rb",
     "spec/spec_helper.rb",
