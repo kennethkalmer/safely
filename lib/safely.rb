@@ -23,13 +23,13 @@ module Safely
     end
 
     def load_strategies!
-      @config.strategies.each { |s| s.load! }
+      config.strategies.each { |s| s.load! }
     end
 
     def report!( exception )
       load_strategies! if @config.nil?
 
-      @config.strategies.each { |s| s.report! exception }
+      config.strategies.each { |s| s.report! exception }
     end
 
     private
