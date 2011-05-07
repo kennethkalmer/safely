@@ -1,46 +1,17 @@
 = safely
 
-Safely is a simple exception handling and alerting mechanism extract from the daemon-kit[http://github.com/kennethkalmer/daemon-kit] project.
+Safely is a simple exception handling and alerting mechanism extract from the daemon-kit[https://github.com/kennethkalmer/daemon-kit] project.
 
-Safely currently supports error reporting to Hoptoad via the Toadhopper[http://github.com/toolmantim/toadhopper] gem. Future support will
-include reporting errors to log files and via email.
+Safely currently supports error reporting to Hoptoad, or via email.
 
-== Installation
+== Installation and Usage
 
-In your Gemfile
-
-    gem "toadhopper", "~> 1.1"
-    gem "safely", "~> 0.1"
-
-Or directly
-
-    gem install toadhopper -v "~> 1.1"
-    gem install safely -v "~> 0.1"
-
-Although Safely currently only supports Toadhopper, it doesn't specify it as a dependency. This allows for
-future strategies to be added and giving users the choice on which strategy to use without bloating their
-projects.
-
-== Usage
-
-    require 'toadhopper'
-    require 'safely'
-    
-    # Configure
-    Safely.configure do |c|
-      c.hoptoad_key = 'XXXXXXXX'
-    end
-    
-    # Run your code
-    safely do
-      do_something_dangerous!
-    end
+Please refer to the wiki[https://github.com/kennethkalmer/safely/wiki] for installation and usage information.
 
 == TODO
 
-* Support for mail exceptions
 * Support for logging exceptions
-* Fine-tine strategies
+* Fine-tune strategies
 * Support for trapping exceptions on exit
 
 == Contributing to safely

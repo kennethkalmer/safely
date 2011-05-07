@@ -1,6 +1,24 @@
 module Safely
   class Config
-    # Hoptoad API key
-    attr_accessor :hoptoad_key
+
+    # List of strategies to use
+    attr_reader :strategies
+
+    def initialize
+      @strategies = [
+        Safely::Strategy::Hoptoad,
+        Safely::Strategy::Mail
+      ]
+    end
+
+    def hoptoad_key
+      $stderr.write "DEPRECATED: Call Safely::Strategy::Hoptoad.hoptoad_key"
+      Safely::Strategy::Hoptoad.hoptoad_key
+    end
+
+    def hoptoad_key=( key )
+      $stderr.write "DEPRECATED: Call Safely::Strategy::Hoptoad.hoptoad_key="
+      Safely::Strategy::Hoptoad.hoptoad_key=( key )
+    end
   end
 end
