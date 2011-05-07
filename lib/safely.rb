@@ -4,9 +4,10 @@ module Safely
 
   VERSION = "0.2.0"
 
-  autoload :Config,   'safely/config'
-  autoload :Mixin,    'safely/mixin'
-  autoload :Strategy, 'safely/strategy'
+  autoload :Backtrace, 'safely/backtrace'
+  autoload :Config,    'safely/config'
+  autoload :Mixin,     'safely/mixin'
+  autoload :Strategy,  'safely/strategy'
 
   class << self
 
