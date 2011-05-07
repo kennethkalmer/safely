@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{safely}
-  s.version = "0.1.0"
+  s.version = "0.2.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kenneth Kalmer"]
@@ -31,13 +31,16 @@ Gem::Specification.new do |s|
     "lib/safely/mixin.rb",
     "lib/safely/strategy.rb",
     "lib/safely/strategy/hoptoad.rb",
+    "lib/safely/strategy/log.rb",
     "lib/safely/strategy/mail.rb",
     "safely.gemspec",
     "spec/config_spec.rb",
     "spec/safely_spec.rb",
     "spec/spec_helper.rb",
     "spec/strategies/hoptoad_spec.rb",
-    "spec/strategies/mail_spec.rb"
+    "spec/strategies/log_spec.rb",
+    "spec/strategies/mail_spec.rb",
+    "spec/support/fake_logger.rb"
   ]
   s.homepage = %q{http://github.com/kennethkalmer/safely}
   s.licenses = ["MIT"]
@@ -49,7 +52,9 @@ Gem::Specification.new do |s|
     "spec/safely_spec.rb",
     "spec/spec_helper.rb",
     "spec/strategies/hoptoad_spec.rb",
-    "spec/strategies/mail_spec.rb"
+    "spec/strategies/log_spec.rb",
+    "spec/strategies/mail_spec.rb",
+    "spec/support/fake_logger.rb"
   ]
 
   if s.respond_to? :specification_version then
