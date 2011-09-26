@@ -2,10 +2,10 @@ module Safely
   class Config
 
     # List of strategies to use
-    attr_reader :strategies
+    attr_writer :strategies
 
-    def initialize
-      @strategies = [
+    def strategies
+      @strategies ||= [
         Safely::Strategy::Hoptoad,
         Safely::Strategy::Mail,
         Safely::Strategy::Log
