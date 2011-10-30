@@ -15,6 +15,7 @@ module Safely
       end
 
       def log_exceptions
+        STDERR.puts("In #log_exceptions. @enabled=#{@enabled}, trace_directory=#{trace_directory}")
         return unless @enabled && self.trace_directory && File.directory?( self.trace_directory )
 
         require 'logger'
@@ -30,7 +31,7 @@ module Safely
           end
         }
 
-        trace_log.info "*** Below you'll find the most recent exception thrown, this will likely (but not certainly) be the exception that made #{DaemonKit.configuration.daemon_name} exit abnormally ***"
+        trace_log.info "*** Below you'll find the most recent exception thrown, this will likely (but not certainly) be the exception that made your application exit abnormally ***"
         trace_log.error e
 
         trace_log.info "*** Below you'll find all the exception objects in memory, some of them may have been thrown in your application, others may just be in memory because they are standard exceptions ***"
