@@ -6,7 +6,8 @@ module Safely
 
         # Hoptoad API key to use for reporting errors
         attr_accessor :hoptoad_key
-        
+        attr_accessor :hoptoad_host
+
         def load!
           begin
             require 'toadhopper'
@@ -16,13 +17,15 @@ module Safely
         end
 
         def report!( exception )
+          params = {}
+          params[:notify_host] = self.hoptoad_host if !self.hoptoad_host.nil?
+
           if defined?( Toadhopper ) && !self.hoptoad_key.nil?
-            Toadhopper( self.hoptoad_key ).post!( exception )
+            Toadhopper.new(self.hoptoad_key, params).post!(exception)
           end
         end
 
       end
-
     end
   end
 end
