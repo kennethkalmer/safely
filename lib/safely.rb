@@ -1,8 +1,6 @@
-$:.unshift File.expand_path('../', __FILE__)
+require "safely/version"
 
 module Safely
-
-  VERSION = "0.3.0"
 
   autoload :Backtrace, 'safely/backtrace'
   autoload :Config,    'safely/config'
