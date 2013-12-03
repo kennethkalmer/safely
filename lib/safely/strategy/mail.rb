@@ -17,7 +17,7 @@ module Safely
           begin
             require 'mail'
           rescue LoadError
-            $stderr.write( "'mail' not available, safely cannot use the email stategy" )
+            $stderr.write( "'mail' not available, safely cannot use the email strategy" )
           end
 
           if self.sender.nil?
