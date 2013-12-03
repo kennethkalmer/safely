@@ -12,7 +12,7 @@ module Safely
           begin
             require 'toadhopper'
           rescue LoadError
-            $stderr.write( "'toadhopper' not available, safely cannot use the Hoptoad stategy" )
+            $stderr.write( "'toadhopper' not available, safely cannot use the Hoptoad strategy" )
           end
         end
 
