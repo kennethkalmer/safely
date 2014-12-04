@@ -20,13 +20,35 @@ describe Safely do
   end
 
   describe "usage" do
-    it "should report exceptions" do
+    before do
       expect(Safely::Strategy::Rollbar).to receive(:log)
       expect(Safely::Strategy::Log).to receive(:log)
+    end
 
+    it "should report exceptions" do
       safely do
         raise "Hello"
       end
+    end
+
+    it 'should report on class method: debug' do
+      Safely.debug('Some debug occurred')
+    end
+
+    it 'should report on class method: info' do
+      Safely.info('Some info occurred')
+    end
+
+    it 'should report on class method: warning' do
+      Safely.warning('Some warning occurred')
+    end
+
+    it 'should report on class method: error' do
+      Safely.error('Some error occurred')
+    end
+
+    it 'should report on class method: critical' do
+      Safely.critical('Some critical occurred')
     end
   end
 end

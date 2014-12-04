@@ -12,7 +12,7 @@ describe Safely::Strategy::Rollbar do
     expect(rollbar).to receive(:log)
 
     safely do
-      raise "Argh"
+      raise "Argh ....."
     end
   end
 
@@ -20,7 +20,7 @@ describe Safely::Strategy::Rollbar do
     expect(rollbar).not_to receive(:log)
 
     safely do
-      raise "Argh"
+      raise "Argh -----"
     end
   end
 end
