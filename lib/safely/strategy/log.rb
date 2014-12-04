@@ -1,3 +1,5 @@
+require 'logger'
+
 module Safely
   module Strategy
     class Log
@@ -18,8 +20,15 @@ module Safely
         attr_accessor :flush
 
         def load!
-          @logger ||= ::Logger.new(STDOUT)
           @flush ||= false
+        end
+
+        def use_default
+          @logger = ::Logger.new(STDOUT)
+        end
+
+        def clear!
+          @logger = nil
         end
 
         def log(level, *args)
@@ -31,7 +40,9 @@ module Safely
             self.logger.add(severity, arg)
           end
 
-          self.logger.flush if self.logger.respond_to?(:flush) && self.flush
+          return unless self.flush
+
+          self.logger.flush if self.logger.respond_to?(:flush)
         end
       end
     end

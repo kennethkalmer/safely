@@ -1,44 +1,28 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe Safely do
-  describe "configuration" do
-    it "should accept a Hoptoad api key" do
-      Safely.configure do |c|
-        c.hoptoad_key = "foo"
-      end
-
-      Safely.config.hoptoad_key.should == "foo"
-    end
-  end
-
   describe "integration" do
     it "should be mixed into Kernel" do
-      Object.should respond_to(:safely)
+      expect(Object).to respond_to(:safely)
     end
 
     it "should be mixed into instances" do
-      Object.new.should respond_to(:safely)
+      expect(Object.new).to respond_to(:safely)
     end
   end
 
   describe "strategies" do
-    it "should load Toadhopper if present" do
+    it "should not have targets by default" do
       Safely.load_strategies!
-
-      defined?( Toadhopper ).should be_true
-    end
-
-    it "should load Mail if present" do
-      Safely.load_strategies!
-
-      defined?( Mail ).should be_true
+      expect(Safely::Strategy::Rollbar.rollbar).to be_nil
+      expect(Safely::Strategy::Log.logger).to be_nil
     end
   end
 
   describe "usage" do
-    it "should report exceptions to hoptoad" do
-      Safely::Strategy::Hoptoad.expects(:report!)
-      Safely::Strategy::Mail.expects(:report!)
+    it "should report exceptions" do
+      expect(Safely::Strategy::Rollbar).to receive(:log)
+      expect(Safely::Strategy::Log).to receive(:log)
 
       safely do
         raise "Hello"

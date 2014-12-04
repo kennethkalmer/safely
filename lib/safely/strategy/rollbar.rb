@@ -9,6 +9,10 @@ module Safely
         def load!
         end
 
+        def clear!
+          @rollbar = nil
+        end
+
         def log(level, *args)
           return if self.rollbar.nil?
 

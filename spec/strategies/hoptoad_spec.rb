@@ -1,3 +1,5 @@
+__END__
+
 require 'spec_helper'
 
 describe Safely::Strategy::Hoptoad do
@@ -9,7 +11,7 @@ describe Safely::Strategy::Hoptoad do
     Safely::Strategy::Hoptoad.should respond_to(:hoptoad_host=)
   end
 
-  it "should send the hoptoad_host when config set" do 
+  it "should send the hoptoad_host when config set" do
     Safely::Strategy::Hoptoad.hoptoad_key = "foo"
     Safely::Strategy::Hoptoad.hoptoad_host = "http://foo"
 

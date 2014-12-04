@@ -1,47 +1,62 @@
 require 'spec_helper'
 
 describe Safely::Strategy::Log do
+
   it "should support setting a logger" do
-    Safely::Strategy::Log.should respond_to(:logger)
-    Safely::Strategy::Log.should respond_to(:logger=)
+    expect(Safely::Strategy::Log).to respond_to(:logger)
+    expect(Safely::Strategy::Log).to respond_to(:logger=)
   end
 
   it "should support setting flushing" do
-    Safely::Strategy::Log.should respond_to(:flush)
-    Safely::Strategy::Log.should respond_to(:flush=)
+    expect(Safely::Strategy::Log).to respond_to(:flush)
+    expect(Safely::Strategy::Log).to respond_to(:flush=)
   end
 
-  describe "reporting" do
-    it "should log exceptions when configured" do
-      logger = FakeLogger.new
+  it "should support clearing the logger" do
+    expect(Safely::Strategy::Log).to respond_to(:clear!)
+  end
 
-      Safely::Strategy::Log.logger = logger
+  it "should support using a default logger" do
+    expect(Safely::Strategy::Log).to respond_to(:use_default)
+  end
 
-      safely do
-        raise "Argh"
-      end
-
-      logger.lines.should_not be_empty
-      logger.to_s.should match(/RuntimeError/)
-      logger.to_s.should match(/Backtrace/)
+  describe 'operation' do
+    after do
+      Safely::Strategy::Log.clear!
     end
 
-    it "should flush logger when configured" do
-      logger = FakeLogger.new
+    describe "reporting" do
+      it "should log exceptions when configured" do
+        io = StringIO.new
+        Safely::Strategy::Log.logger = ::Logger.new(io)
 
-      Safely::Strategy::Log.logger = logger
-      Safely::Strategy::Log.flush = true
+        safely do
+          raise "Argh"
+        end
 
-      logger.expects(:flush)
-
-      safely do
-        raise "Argh"
+        expect(io.string).to match(/Argh \(RuntimeError\)/)
       end
     end
 
-    it "should do nothing if not configured" do
-      safely do
-        raise "Argh"
+    describe 'flushing' do
+      it "should flush logger when configured" do
+        logger = double('logger', add: true)
+        expect(logger).to receive(:flush)
+
+        Safely::Strategy::Log.logger = logger
+        Safely::Strategy::Log.flush = true
+
+        safely do
+          raise "Argh ....."
+        end
+      end
+    end
+
+    describe 'unconfigured behaviour' do
+      it "should do nothing if not configured" do
+        safely do
+          raise "Argh -----"
+        end
       end
     end
   end
