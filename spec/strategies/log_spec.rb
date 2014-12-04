@@ -3,32 +3,32 @@ require 'spec_helper'
 describe Safely::Strategy::Log do
 
   it "should support setting a logger" do
-    expect(Safely::Strategy::Log).to respond_to(:logger)
-    expect(Safely::Strategy::Log).to respond_to(:logger=)
+    expect(described_class).to respond_to(:logger)
+    expect(described_class).to respond_to(:logger=)
   end
 
   it "should support setting flushing" do
-    expect(Safely::Strategy::Log).to respond_to(:flush)
-    expect(Safely::Strategy::Log).to respond_to(:flush=)
+    expect(described_class).to respond_to(:flush)
+    expect(described_class).to respond_to(:flush=)
   end
 
   it "should support clearing the logger" do
-    expect(Safely::Strategy::Log).to respond_to(:clear!)
+    expect(described_class).to respond_to(:clear!)
   end
 
   it "should support using a default logger" do
-    expect(Safely::Strategy::Log).to respond_to(:use_default)
+    expect(described_class).to respond_to(:use_default)
   end
 
   describe 'operation' do
-    after do
-      Safely::Strategy::Log.clear!
+    before do
+      described_class.clear!
     end
 
     describe "reporting" do
       it "should log exceptions when configured" do
         io = StringIO.new
-        Safely::Strategy::Log.logger = ::Logger.new(io)
+        described_class.logger = ::Logger.new(io)
 
         safely do
           raise "Argh"
@@ -43,8 +43,8 @@ describe Safely::Strategy::Log do
         logger = double('logger', add: true)
         expect(logger).to receive(:flush)
 
-        Safely::Strategy::Log.logger = logger
-        Safely::Strategy::Log.flush = true
+        described_class.logger = logger
+        described_class.flush = true
 
         safely do
           raise "Argh ....."
