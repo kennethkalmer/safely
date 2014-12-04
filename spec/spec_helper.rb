@@ -8,7 +8,7 @@ require 'safely'
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
-  config.mock_with(:mocha)
+  config.mock_with(:rspec)
 
   # config.before(:each) do
   #   Mail::TestMailer.deliveries.clear
