@@ -1,7 +1,6 @@
 module Safely
   module Strategy
-    autoload :Hoptoad, 'safely/strategy/hoptoad'
+    autoload :Rollbar, 'safely/strategy/rollbar'
     autoload :Log,     'safely/strategy/log'
-    autoload :Mail,    'safely/strategy/mail'
   end
 end

@@ -2,7 +2,7 @@
 
 Safely is a simple exception handling and alerting mechanism extract from the daemon-kit[https://github.com/kennethkalmer/daemon-kit] project.
 
-Safely currently supports error reporting to Hoptoad, or via email. Safely can also log all exceptions to a file when a program exited abnormally, shedding light on what caused the failures.
+Safely currently supports error reporting to Rollbar. Safely can also log all exceptions to a file when a program exited abnormally, shedding light on what caused the failures.
 
 == Installation and Usage
 
@@ -15,7 +15,7 @@ Please refer to the wiki[https://github.com/kennethkalmer/safely/wiki] for insta
 * Support for trapping exceptions on exit
 
 == Contributing to safely
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project

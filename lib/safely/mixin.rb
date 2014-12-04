@@ -7,7 +7,7 @@ module Safely
       begin
         yield
       rescue => e
-        Safely.report!( e )
+        Safely.error(e)
       end
     end
 

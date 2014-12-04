@@ -7,16 +7,10 @@ require 'safely'
 # in ./support/ and its subdirectories.
 Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-require 'mail'
-Mail.defaults do
-  delivery_method :test
-end
-
-
 RSpec.configure do |config|
   config.mock_with(:mocha)
 
-  config.before(:each) do
-    Mail::TestMailer.deliveries.clear
-  end
+  # config.before(:each) do
+  #   Mail::TestMailer.deliveries.clear
+  # end
 end
