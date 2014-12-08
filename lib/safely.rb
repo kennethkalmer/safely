@@ -60,6 +60,16 @@ module Safely
       config.strategies.each { |s| s.log(level, *args) }
     end
 
+    def just_log(level, *args)
+      load_strategies! if @config.nil?
+      config.log_strategy.log(level, *args)
+    end
+
+    def just_report(level, *args)
+      load_strategies! if @config.nil?
+      config.report_strategy.log(level, *args)
+    end
+
     private
 
     def config=( config )

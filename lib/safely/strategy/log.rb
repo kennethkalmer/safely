@@ -6,6 +6,7 @@ module Safely
       SEVERITIES = {
         'debug' => 0,
         'info' => 1,
+        'warn' => 2,
         'warning' => 2,
         'error' => 3,
         'critical' => 4
@@ -34,7 +35,7 @@ module Safely
         def log(level, *args)
           return if self.logger.nil?
           #matches the integers from ::Logger::SEV_LEVEL array
-          severity = SEVERITIES.fetch(level, 5)
+          severity = SEVERITIES.fetch(level.to_s, 5)
           args.each do |arg|
             #Logger::Formatter will stringify the arg
             self.logger.add(severity, arg)
