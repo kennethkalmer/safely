@@ -10,7 +10,7 @@ describe Safely::Backtrace do
   end
 
   it "can be configured" do
-    Safely::Backtrace.should respond_to(:trace_directory)
+    expect(Safely::Backtrace).to respond_to(:trace_directory)
   end
 
   it "can be enabled" do
@@ -21,13 +21,13 @@ describe Safely::Backtrace do
     `ruby #{File.expand_path('../backtrace/unsafe.rb', __FILE__)}`
 
     entries = Dir["#{@temp_dir}/backtrace-*.log"]
-    entries.should_not be_empty
+    expect(entries).not_to be_empty
   end
 
   it "should not log a backtrace on a safe shutdown" do
     `ruby #{File.expand_path('../backtrace/safe.rb', __FILE__)}`
 
     entries = Dir["#{@temp_dir}/backtrace-*.log"]
-    entries.should be_empty
+    expect(entries).to be_empty
   end
 end
