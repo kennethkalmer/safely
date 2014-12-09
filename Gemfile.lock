@@ -1,14 +1,14 @@
+PATH
+  remote: .
+  specs:
+    safely (0.3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
     activesupport (3.0.6)
     diff-lcs (1.1.2)
-    git (1.2.5)
     i18n (0.5.0)
-    jeweler (1.5.2)
-      bundler (~> 1.0.0)
-      git (>= 1.2.5)
-      rake
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -27,7 +27,7 @@ GEM
     rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
     rspec-mocks (2.5.0)
-    toadhopper (1.1)
+    toadhopper (2.0)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     yard (0.6.7)
@@ -36,11 +36,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.0.0)
-  jeweler (~> 1.5.2)
+  bundler
   mail
   mocha
+  rake
   rcov
   rspec (~> 2.5.0)
+  safely!
   toadhopper
   yard (~> 0.6.0)
