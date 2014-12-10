@@ -1,6 +1,7 @@
 # safely
 
 [![Build Status](https://travis-ci.org/kennethkalmer/safely.png)](https://travis-ci.org/kennethkalmer/safely)
+[![Coverage Status](https://coveralls.io/repos/kennethkalmer/safely/badge.png)](https://coveralls.io/r/kennethkalmer/safely)
 
 Safely is a simple exception handling and alerting mechanism extract from the [daemon-kit](https://github.com/kennethkalmer/daemon-kit) project.
 
