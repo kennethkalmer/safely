@@ -4,6 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/kennethkalmer/safely/badge.png)](https://coveralls.io/r/kennethkalmer/safely)
 [![Code Climate](https://codeclimate.com/github/kennethkalmer/safely.png)](https://codeclimate.com/github/kennethkalmer/safely)
 [![Gem Version](https://badge.fury.io/rb/safely.png)](http://badge.fury.io/rb/safely)
+[![Dependency Status](https://gemnasium.com/kennethkalmer/safely.svg)](https://gemnasium.com/kennethkalmer/safely)
 
 Safely is a simple exception handling and alerting mechanism extract from the [daemon-kit](https://github.com/kennethkalmer/daemon-kit) project.
 
