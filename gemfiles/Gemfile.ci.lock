@@ -25,7 +25,7 @@ GEM
     mocha (0.9.12)
     multi_json (1.10.1)
     polyglot (0.3.1)
-    rake (0.8.7)
+    rake (10.4.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.5.0)
@@ -58,7 +58,7 @@ DEPENDENCIES
   coveralls
   mail
   mocha
-  rake
+  rake (~> 10.4.2)
   rspec (~> 2.5.0)
   safely!
   toadhopper

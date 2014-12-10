@@ -17,7 +17,7 @@ GEM
     mime-types (1.16)
     mocha (0.9.12)
     polyglot (0.3.1)
-    rake (0.8.7)
+    rake (10.4.2)
     rspec (2.5.0)
       rspec-core (~> 2.5.0)
       rspec-expectations (~> 2.5.0)
@@ -38,7 +38,7 @@ DEPENDENCIES
   bundler
   mail
   mocha
-  rake
+  rake (~> 10.4.2)
   rspec (~> 2.5.0)
   safely!
   toadhopper
