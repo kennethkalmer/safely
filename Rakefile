@@ -11,3 +11,10 @@ task :default => :spec
 
 require 'yard'
 YARD::Rake::YardocTask.new
+
+begin
+  require 'coveralls/rake/task'
+  Coveralls::RakeTask.new
+  task :default => [ :spec, 'coveralls:push'  ]
+rescue LoadError
+end

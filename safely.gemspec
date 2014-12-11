@@ -16,11 +16,10 @@ Gem::Specification.new do |gem|
   gem.version       = Safely.version
 
   gem.add_development_dependency(%q<bundler>)
-  gem.add_development_dependency(%q<rake>)
+  gem.add_development_dependency(%q<rake>, ["~> 10.4.2"])
   gem.add_development_dependency(%q<toadhopper>, [">= 0"])
   gem.add_development_dependency(%q<mail>, [">= 0"])
   gem.add_development_dependency(%q<rspec>, ["~> 2.5.0"])
-  gem.add_development_dependency(%q<yard>, ["~> 0.6.0"])
-  gem.add_development_dependency(%q<rcov>, [">= 0"])
+  gem.add_development_dependency(%q<yard>, ["~> 0.8.7"])
   gem.add_development_dependency(%q<mocha>, [">= 0"])
 end
